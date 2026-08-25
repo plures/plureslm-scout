@@ -17,7 +17,7 @@ Use GitHub issues here for end-user installation, upgrade, compatibility, and do
 - private repositories, code, or user prompts;
 - unreleased implementation details.
 
-For a suspected vulnerability, do not open a public issue containing exploit details or secrets. Use the repository's private security-reporting path when it is available.
+For a suspected vulnerability, do not open a public issue containing exploit details or secrets. Report privately at https://github.com/plures/plureslm-scout/security/advisories/new.
 
 ## Scope
 
