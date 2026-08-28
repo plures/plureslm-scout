@@ -28,7 +28,7 @@ The installer configures the local `plureslm` MCP bridge for Scout/Copilot. When
 
 ChatGPT on the web and ChatGPT Work do not read a local computer's MCP configuration. They require a separate, opt-in remote MCP/plugin deployment with HTTPS and OAuth; the Windows installer never exposes local memory remotely.
 
-Auto-stash defaults to explicit user requests (`remember this`, `note:`, or `important:`). This avoids retaining ordinary prompts by default. The broker still applies its PX memory-admission policy before anything is stored.
+Auto-stash defaults to explicit user requests (`remember this`, `note:`, or `important:`). This avoids retaining ordinary prompts by default. The broker still applies its memory-admission policy before anything is stored.
 
 ## Support
 
