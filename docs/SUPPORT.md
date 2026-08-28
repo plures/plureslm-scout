@@ -6,7 +6,8 @@ Use GitHub issues here for end-user installation, upgrade, compatibility, and do
 
 - PluresLM Scout release version;
 - Windows version and architecture;
-- Scout or Copilot host version;
+- affected local client and version (Scout, Copilot, Codex CLI, Codex IDE extension, or ChatGPT desktop);
+- whether the installation used the `unified` or `split` memory profile;
 - the installation step that failed;
 - redacted logs and the artifact checksum, when available.
 
@@ -21,4 +22,4 @@ For a suspected vulnerability, do not open a public issue containing exploit det
 
 ## Scope
 
-The Scout adapter is a client of the shared PluresLM service. Storage ownership, service policy, and implementation changes belong in Praxis Platform. This repository carries the resulting release artifacts and user-facing documentation.
+The Scout adapter is a client of the PluresLM Desktop Broker. Storage ownership, memory-space policy, and implementation changes belong in Praxis Platform. This repository carries the resulting release artifacts and user-facing documentation.

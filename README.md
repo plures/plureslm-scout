@@ -1,6 +1,6 @@
 # PluresLM Scout
 
-PluresLM Scout connects [Microsoft Scout](https://learn.microsoft.com/copilot/) and compatible Copilot surfaces to a local-first PluresLM memory service. This repository is the public home for **released packages, installation guidance, release notes, and user support**.
+PluresLM Scout connects [Microsoft Scout](https://learn.microsoft.com/copilot/) and compatible Copilot surfaces to the local-first **PluresLM Desktop Broker**. This repository is the public home for **released packages, installation guidance, release notes, and user support**.
 
 ## Where the code lives
 
@@ -14,11 +14,21 @@ No end-user release is available yet. When the first supported release is ready,
 
 ## What it will provide
 
-- Scout/Copilot prompt-time recall through the PluresLM service.
+- Scout/Copilot prompt-time recall and conservative explicit-request auto-stash through the PluresLM Desktop Broker.
 - A supported installer and upgrade path for Windows.
-- An optional MCP configuration for Scout/Copilot tools.
+- A service-backed MCP configuration for Scout/Copilot and Codex.
 
-The shared PluresLM service remains the only owner of a shared live memory store. The Scout integration is a client: it must not open the service's database path directly or silently fall back to a separate shared-store implementation.
+The Desktop Broker remains the only owner of a shared live memory store. Scout, OpenClaw, VS Code, Copilot, and Codex are clients: they must not open the database path directly or silently fall back to a separate store.
+
+## Memory profiles and client support
+
+The default installer profile is **unified**: Scout, generic MCP tools, and Codex share the user's `personal` memory space. Use `-MemoryProfile split` at installation when those clients should start with separate spaces. Every client receives an independent local capability and can access only its configured space.
+
+The installer configures the local `plureslm` MCP bridge for Scout/Copilot. When Codex is installed, it also configures the same bridge for Codex CLI, the Codex IDE extension, and the ChatGPT desktop app. All of these local clients use the same broker, not separate databases.
+
+ChatGPT on the web and ChatGPT Work do not read a local computer's MCP configuration. They require a separate, opt-in remote MCP/plugin deployment with HTTPS and OAuth; the Windows installer never exposes local memory remotely.
+
+Auto-stash defaults to explicit user requests (`remember this`, `note:`, or `important:`). This avoids retaining ordinary prompts by default. The broker still applies its memory-admission policy before anything is stored.
 
 ## Support
 
