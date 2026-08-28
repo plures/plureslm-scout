@@ -6,9 +6,8 @@ Use GitHub issues here for end-user installation, upgrade, compatibility, and do
 
 - PluresLM Scout release version;
 - Windows version and architecture;
-- Scout or Copilot host version;
+- affected local client and version (Scout, Copilot, Codex CLI, Codex IDE extension, or ChatGPT desktop);
 - whether the installation used the `unified` or `split` memory profile;
-- whether the affected local client is Scout, Copilot, Codex, or ChatGPT desktop;
 - the installation step that failed;
 - redacted logs and the artifact checksum, when available.
 
