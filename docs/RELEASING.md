@@ -6,6 +6,39 @@ This repository is a release distribution and support surface. It does not build
 
 The Scout adapter, its tests, and release-generation workflow live in the Praxis Platform monorepo. A public release is published here only after that workflow has produced a versioned artifact and retained its verification evidence.
 
+## Unified product boundary
+
+PluresLM ships one product installer per supported OS/architecture target,
+starting with the Windows x64 MSI. Harness adapters are optional components
+of the same product and single broker, not independent installer products.
+Canonical product releases belong to `plures/praxis-platform`, with identical
+assets mirrored to `plures/pluresLM`.
+
+This repository retains existing Scout ZIPs for compatibility. It is not a
+second product-installer channel. The platform workflow continues to validate
+Scout candidates, but publishing a legacy ZIP requires an explicit dispatch
+on platform `main` with `publish_legacy_scout=true`. A normal push or dispatch
+without that flag must not publish. This workflow change must be merged in
+Praxis Platform before that behavior is effective.
+
+The current MSI's shared broker and service-only MCP command are not proof
+of automatic harness setup or migration. Do not claim those features until
+their integration/upgrade tests pass.
+
+## Release tags and recovery
+
+The active `PluresLM immutable release tags` ruleset permits new `v*` and
+`plureslm-v*` tags but prohibits updating or deleting them, with no bypass
+actors. It does not grant repository write permission or replace artifact,
+version, checksum, approval, or source-identity validation. Release assets
+must never be overwritten merely because tag creation is allowed.
+
+If a version belongs to an older platform commit, retain it. Prepare the next
+reviewed component version rather than moving its tag or replacing its assets.
+The platform's protected release environment and product-mirror credential
+are separate prerequisites for the unified installer; the legacy Scout
+publisher credential does not establish readiness for that channel.
+
 ## Publication requirements
 
 Before publishing an artifact here, the platform release must provide:

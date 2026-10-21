@@ -6,11 +6,29 @@ PluresLM Scout connects [Microsoft Scout](https://learn.microsoft.com/copilot/) 
 
 The implementation and its CI live in the [Praxis Platform monorepo](https://github.com/plures/praxis-platform). The Scout adapter will be maintained there as `packages/plureslm-scout`, alongside the shared PluresLM service and its enforced store-ownership policy.
 
-This repository deliberately contains no runtime source code, dependency lockfiles, or CI workflows. A release asset is published here only after the corresponding platform release workflow has produced and verified it.
+This repository deliberately contains no runtime source code, dependency lockfiles, or CI workflows. A legacy compatibility release asset is published here only after the corresponding platform release workflow has produced and verified it.
 
 ## Downloads
 
-No end-user release is available yet. When the first supported release is ready, download the Windows package from [Releases](https://github.com/plures/plureslm-scout/releases) and follow its version-specific installation notes.
+Existing Scout-branded Windows ZIPs are available from
+[Releases](https://github.com/plures/plureslm-scout/releases). They are legacy
+compatibility packages, not the unified PluresLM product installer. Follow the
+selected release's installation notes and verify its matching SHA-256 file.
+
+PluresLM's direction is **one product installer per operating-system/architecture
+target**, starting with the Windows x64 MSI. Scout, Copilot, Codex, VS Code,
+and OpenClaw are optional integrations of the same broker, not separate
+PluresLM installations or release channels. The canonical source is Praxis
+Platform; the product distribution mirror is
+[plures/pluresLM](https://github.com/plures/pluresLM/releases). That repository
+may require access; a missing or inaccessible release is not proof of an
+available product installer.
+
+The MSI does not yet automatically configure Scout hooks or migrate a legacy
+Scout installation. Do not delete existing memory or credentials, silently
+repoint clients, or run competing broker processes against the same store.
+The [platform operating model](https://github.com/plures/praxis-platform/blob/main/docs/PLURESLM-PROJECT-OPERATING-MODEL.md)
+records the remaining integration and migration gates.
 
 ## What it will provide
 
